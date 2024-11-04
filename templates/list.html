@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}
+    List Blogs
+{% endblock title %}
+{% block content %}
+    <div class="container my-2 p-2 bg-light">
+        <div class="row">
+            {% if error_message %}<div class="alert alert-warning" role="alert">{{ error_message }}</div>{% endif %}
+            {% for id, value in blogs %}
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="card rounded shadow">
+                        <div class="card-body">
+                            <div class="w-100 d-flex justify-content-between align-items-center">
+                                <h5 class="card-title">{{ value["title"] }}</h5>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <a href="/{{ id }}/edit" class="btn btn-info btn-sm pe-2">Edit</a>
+                                    <a href="/{{ id }}/delete" class="btn btn-info btn-sm">Delete</a>
+                                </div>
+                            </div>
+                            <p>{{ value["content"] }}</p>
+                            <a href="/{{ id }}" class="btn btn-info btn-sm">Read more</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}

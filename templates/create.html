@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}
+    Create Blog
+{% endblock title %}
+{% block content %}
+    <div class="container my-2 p-2 bg-light">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-6 col-md-8 col-lg-6 rounded shadow p-2">
+                <h4>Create blog</h4>
+                <form action="/create" method="post">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control" name="title" id="title">
+                    </div>
+                    <div class="mb-3">
+                        <label for="content" class="form-label">Content</label>
+                        <input type="text" class="form-control" name="content" id="content">
+                    </div>
+                    <button type="submit" class="btn btn-info">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

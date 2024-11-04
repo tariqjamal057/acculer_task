@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}
+    Update {{ blog_id }} blog
+{% endblock title %}
+{% block content %}
+    <div class="container my-2 p-2 bg-light">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-6 col-md-8 col-lg-6 rounded shadow p-2">
+                <h4>Update blog</h4>
+                {% if error_message %}
+                    <div class="alert alert-warning" role="alert">{{ error_message }}</div>
+                {% else %}
+                    <form action="/{{ blog_id }}/edit" method="post">
+                        <div class="mb-3">
+                            <label for="title" class="form-label">Title</label>
+                            <input type="text"
+                                   class="form-control"
+                                   name="title"
+                                   value="{{ blog['title'] }}"
+                                   id="title">
+                        </div>
+                        <div class="mb-3">
+                            <label for="content" class="form-label">Content</label>
+                            <input type="text"
+                                   class="form-control"
+                                   name="content"
+                                   value="{{ blog['content'] }}"
+                                   id="content">
+                        </div>
+                        <button type="submit" class="btn btn-info">Submit</button>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}
